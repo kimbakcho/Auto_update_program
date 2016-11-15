@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/etc">
+        <file>myapp.rc</file>
+    </qresource>
+</RCC>
