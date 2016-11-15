@@ -57,7 +57,7 @@ bool QProgress_thread::copyPath(QString sourceDir, QString destinationDir, bool 
 
 void QProgress_thread::update_file_logic()
 {
-    QDir DIR_src(QString("\\\\10.20.10.230\\FabProgram\\EIS_%1bit\\").arg(buildCpu));
+    QDir DIR_src(QString("\\\\fabsv.wisol.co.kr\\FabProgram\\EIS_%1bit\\").arg(buildCpu));
     QFileInfoList list_src = DIR_src.entryInfoList();
     QDir DIR_des(qApp->applicationDirPath()+'/'+QString("EIS_%1bit/").arg(buildCpu));
     QFileInfoList list_des = DIR_des.entryInfoList();

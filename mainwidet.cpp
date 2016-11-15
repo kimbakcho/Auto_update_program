@@ -17,7 +17,7 @@ Mainwidet::Mainwidet(QWidget *parent) :
     }
 
     db = QSqlDatabase::addDatabase("QMYSQL","join_update_db");
-    db.setHostName("10.20.10.230");
+    db.setHostName("fabsv.wisol.co.kr");
     db.setPort(3306);
     db.setUserName(DBID);
     db.setPassword(DBPW);
@@ -36,7 +36,7 @@ Mainwidet::Mainwidet(QWidget *parent) :
     local_version = local_version_info.value("version").toInt();
     local_version_info.endGroup();
 
-    QSettings server_version_info("\\\\10.20.10.230\\FabProgram\\version_info.ini",QSettings::IniFormat);
+    QSettings server_version_info("\\\\fabsv.wisol.co.kr\\FabProgram\\version_info.ini",QSettings::IniFormat);
     server_version_info.beginGroup("version_info");
     remote_version = server_version_info.value("version").toInt();
     server_version_info.endGroup();
