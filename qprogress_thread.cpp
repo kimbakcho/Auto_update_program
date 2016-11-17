@@ -111,9 +111,9 @@ void QProgress_thread::update_file_logic()
 
 void QProgress_thread::start_update()
 {
-    if(QSysInfo::buildCpuArchitecture() == "i386"){
+    if(QSysInfo::currentCpuArchitecture() == "i386"){
         buildCpu = "32";
-    }else if(QSysInfo::buildCpuArchitecture() == "x86_64") {
+    }else if(QSysInfo::currentCpuArchitecture() == "x86_64") {
         buildCpu = "64";
     }
     current_update_file_count = 0;

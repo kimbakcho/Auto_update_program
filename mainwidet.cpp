@@ -6,9 +6,9 @@ Mainwidet::Mainwidet(QWidget *parent) :
     ui(new Ui::Mainwidet)
 {
     ui->setupUi(this);
-    if(QSysInfo::buildCpuArchitecture() == "i386"){
+    if(QSysInfo::currentCpuArchitecture() == "i386"){
         buildCpu = "32";
-    }else if(QSysInfo::buildCpuArchitecture() == "x86_64") {
+    }else if(QSysInfo::currentCpuArchitecture() == "x86_64") {
         buildCpu = "64";
     }
     QDir EIS_forder(qApp->applicationDirPath()+'/'+QString("EIS_%1bit").arg(buildCpu));
@@ -29,25 +29,25 @@ Mainwidet::Mainwidet(QWidget *parent) :
     query.exec("select * from version_manager");
     query.next();
     ui->update_content->setHtml(query.value("content").toString());
-    local_version = 0;
-    remote_version = 0;
-    QSettings local_version_info("version_info.ini",QSettings::IniFormat);
-    local_version_info.beginGroup("version_info");
-    local_version = local_version_info.value("version").toInt();
-    local_version_info.endGroup();
+//    local_version = 0;
+//    remote_version = 0;
+//    QSettings local_version_info("version_info.ini",QSettings::IniFormat);
+//    local_version_info.beginGroup("version_info");
+//    local_version = local_version_info.value("version").toInt();
+//    local_version_info.endGroup();
 
-    QSettings server_version_info("\\\\fabsv.wisol.co.kr\\FabProgram\\version_info.ini",QSettings::IniFormat);
-    server_version_info.beginGroup("version_info");
-    remote_version = server_version_info.value("version").toInt();
-    server_version_info.endGroup();
+//    QSettings server_version_info("\\\\fabsv.wisol.co.kr\\FabProgram\\version_info.ini",QSettings::IniFormat);
+//    server_version_info.beginGroup("version_info");
+//    remote_version = server_version_info.value("version").toInt();
+//    server_version_info.endGroup();
 
-    if(local_version == remote_version){
-        setStart_popup_flag(false);
-        Process.startDetached(QString("EIS_%1bit\\main.exe").arg(buildCpu));
-        return ;
-    }else {
+//    if(local_version == remote_version){
+//        setStart_popup_flag(false);
+//        Process.startDetached(QString("EIS_%1bit\\main.exe").arg(buildCpu));
+//        return ;
+//    }else {
 
-    }
+//    }
 
     update_file_count = 0;
     update_check();
